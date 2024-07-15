@@ -1,32 +1,24 @@
-import { createBrowserRouter, createRoutesFromElements, Link, Outlet, Route, RouterProvider } from "react-router-dom";
-import Footer from "./Footer";
-import NavBar from "./NavBar";
-import Home from "./Home";
-// import ArticleDetails from "./ArticleDetails";
-
+import "./App.css";
+import { Routes, Route } from "react-router-dom";
 import ArticleDetails from "./ArticleDetails";
-
-const MainLayout = () => {
-  return (
-    <>
-      <NavBar />
-      <Outlet />
-      <Footer />
-    </>
-  );
-};
-
-const router = createBrowserRouter(
-  createRoutesFromElements(
-    <Route path="/" element={<MainLayout />}>
-      <Route index element={<Home />} />
-      <Route path="article/*" element={<ArticleDetails />} />
-    </Route>
-  )
-);
+import ArticleList from "./ArticleList";
+import Navbar from "./Navbar.jsx";
+import Home from "./Home";
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="article/*" element={<ArticleDetails />}></Route>
+        <Route path="/music" element={<ArticleList category={`music`} />}></Route>
+        <Route path="/sports" element={<ArticleList category={`sports`} />}></Route>
+        <Route path="/games" element={<ArticleList category={`games`} />}></Route>
+        <Route path="/travel" element={<ArticleList category={`travel`} />}></Route>
+      </Routes>
+    </>
+  );
 }
 
 export default App;
