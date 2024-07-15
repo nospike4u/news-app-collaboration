@@ -35,6 +35,14 @@ function App() {
           path="/travel"
           element={<ArticleList props={`travel`} />}
         ></Route>
+        <Route
+          path="/business"
+          element={<ArticleList props={`business`} />}
+        ></Route>
+        <Route
+          path="/science"
+          element={<ArticleList props={`science`} />}
+        ></Route>
       </Routes>
       <Footer />
     </>
