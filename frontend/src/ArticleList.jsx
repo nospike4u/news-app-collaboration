@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const articleTags = (props) => {
+const ArticleList = (props) => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -45,3 +45,5 @@ const articleTags = (props) => {
     </div>
   );
 };
+
+export default ArticleList;
