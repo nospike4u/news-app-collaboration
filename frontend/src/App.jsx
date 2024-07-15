@@ -4,6 +4,7 @@ import ArticleDetails from "./ArticleDetails";
 import ArticleList from "./ArticleList";
 import Navbar from "./Navbar.jsx";
 import Home from "./Home";
+import Footer from "./Footer.jsx";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/games" element={<ArticleList category={`games`} />}></Route>
         <Route path="/travel" element={<ArticleList category={`travel`} />}></Route>
       </Routes>
+      <Footer />
     </>
   );
 }
