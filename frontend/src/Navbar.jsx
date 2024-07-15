@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const Navbar = () => {
   return (
@@ -8,12 +8,14 @@ const Navbar = () => {
         <div className="flex space-x-4">
           <li className="text-lg cursor-pointer hover:text-blue-500">Sports</li>
           <li className="text-lg cursor-pointer hover:text-blue-500">Music</li>
-          <li className="text-lg cursor-pointer hover:text-blue-500">e-Games</li>
+          <li className="text-lg cursor-pointer hover:text-blue-500">
+            e-Games
+          </li>
           <li className="text-lg cursor-pointer hover:text-blue-500">Travel</li>
         </div>
       </ul>
     </nav>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
