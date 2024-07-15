@@ -1,21 +1,27 @@
 import React, { useState, useEffect } from 'react';
+import Link from 'react-router-dom';
 
-const ArticleList = (props) => {
+const ArticleList = ({ props }) => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  console.log(`Props: ${props}`);
+
+  //props = 'sport';
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `http://content.guardianapis.com/tags?q=${props}&section=${props}&api-key=test`
+          `https://content.guardianapis.com/search?section=${props}&show-fields=thumbnail&api-key=test`
         );
         if (!response.ok) {
           throw new Error('Netzwerkantwort war nicht ok');
         }
         const result = await response.json();
         setData(result);
+        console.log(result); // ---------------------
       } catch (error) {
         setError(error);
       } finally {
@@ -24,7 +30,7 @@ const ArticleList = (props) => {
     };
 
     fetchData();
-  }, []);
+  }, [props]);
 
   if (loading) {
     return <div>Laden...</div>;
@@ -34,12 +40,26 @@ const ArticleList = (props) => {
     return <div>Fehler: {error.message}</div>;
   }
 
+  console.log(data.response.results);
+
   return (
     <div>
-      <h1>{props} Tags</h1>
-      <ul>
+      <ul className="grid grid-cols-3 gap-3">
         {data.response.results.map((tag) => (
-          <li key={tag.id}>{tag.webTitle}</li>
+          <li key={tag.id}>
+            {/* <Link to={`/article/${tag.id}`}> */}
+            <div className="max-w-sm rounded overflow-hidden shadow-lg">
+              <img
+                className="w-full"
+                src={tag.fields.thumbnail}
+                alt=""
+              />
+              <div className="px-6 py-4">
+                <p className="text-gray-700 text-base">{tag.webTitle} </p>
+              </div>
+            </div>
+            {/*  </Link> */}
+          </li>
         ))}
       </ul>
     </div>
