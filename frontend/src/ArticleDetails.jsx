@@ -20,8 +20,8 @@ export default function ArticleDetails() {
       .then((res) => {
         const _article = res.data.response;
         setArticle(_article.content);
-        // console.log(_article.content);
-        // console.log(_article.content.elements[0].assets[0].file);
+        console.log(_article.content);
+        console.log(_article.content.elements[0].assets[0].file);
         setImage(_article.content.elements[0].assets[0].file);
       })
       .catch((err) => console.log(err));
