@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Link from 'react-router-dom';
 
 const ArticleList = ({ props }) => {
   const [data, setData] = useState(null);
@@ -47,7 +46,6 @@ const ArticleList = ({ props }) => {
       <ul className="grid grid-cols-3 gap-3">
         {data.response.results.map((tag) => (
           <li key={tag.id}>
-            {/* <Link to={`/article/${tag.id}`}> */}
             <div className="max-w-sm rounded overflow-hidden shadow-lg">
               <img
                 className="w-full"
@@ -58,7 +56,6 @@ const ArticleList = ({ props }) => {
                 <p className="text-gray-700 text-base">{tag.webTitle} </p>
               </div>
             </div>
-            {/*  </Link> */}
           </li>
         ))}
       </ul>
