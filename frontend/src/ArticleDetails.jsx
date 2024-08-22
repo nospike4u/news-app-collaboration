@@ -14,9 +14,10 @@ export default function ArticleDetails() {
 
   useEffect(() => {
     // setLoading(true);
-    const paramsAPI = { "api-key": "test", "show-fields": "bodyText,thumbnail", "show-elements": "image" };
-    axios
-      .get(articleURL, { params: paramsAPI })
+    const paramsAPI = { "api-key": "test", 
+      "show-fields": "bodyText, thumbnail", 
+      "show-elements": "image" };
+    axios.get(articleURL, { params: paramsAPI })
       .then((res) => {
         const _article = res.data.response;
         setArticle(_article.content);
